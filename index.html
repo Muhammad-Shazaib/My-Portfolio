@@ -1,238 +1,328 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Muhammad Shazaib — MERN Stack Developer Portfolio</title>
-  <meta name="description" content="Portfolio of Muhammad Shazaib — MERN Stack Developer | React | Node.js | MongoDB | Tailwind CSS" />
+  <meta name="description"
+    content="Portfolio of Muhammad Shazaib — MERN Stack Developer | React | Node.js | MongoDB | Tailwind CSS" />
   <meta name="keywords" content="Muhammad Shazaib, MERN Stack, Developer, React, Tailwind, Node, MongoDB, Portfolio" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>.glass{background:rgba(255,255,255,0.06);backdrop-filter:blur(6px);}</style>
+  <style>
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 26px;
+      /* adjust if needed */
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(6px);
+    }
+  </style>
 </head>
+
 <body class="bg-gradient-to-br from-gray-900 via-slate-900 to-indigo-900 text-slate-100">
 
-<!-- NAV -->
-<header class="sticky top-0 z-50 glass border-b border-white/5">
-  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href="#home" class="flex items-center gap-3">
-      <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-indigo-500 to-pink-500 flex items-center justify-center text-white font-bold">MS</div>
-      <div class="hidden sm:block">
-        <div class="text-sm font-semibold">Muhammad Shazaib</div>
-        <div class="text-xs text-slate-300">MERN Stack Developer</div>
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 glass border-b border-white/5">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-3">
+        <div
+          class="w-10 h-10 rounded-full bg-gradient-to-tr from-indigo-500 to-pink-500 flex items-center justify-center text-white font-bold">
+          MS</div>
+        <div class="hidden sm:block">
+          <div class="text-sm font-semibold">Muhammad Shazaib</div>
+          <div class="text-xs text-slate-300">MERN Stack Developer</div>
+        </div>
+      </a>
+      <nav class="hidden md:flex gap-6 items-center text-sm">
+        <a href="#about" class="hover:text-white/90">About</a>
+        <a href="#projects" class="hover:text-white/90">Projects</a>
+        <a href="#skills" class="hover:text-white/90">Skills</a>
+        <a href="#contact" class="hover:text-white/90">Contact</a>
+        <a href="https://github.com/muhammad-shazaib" target="_blank"
+          class="bg-white/10 px-3 py-2 rounded-md text-xs hover:bg-white/20">GitHub</a>
+      </nav>
+      <div class="md:hidden"><button id="menuBtn" class="p-2 rounded-md bg-white/6">Menu</button></div>
+    </div>
+    <div id="mobileMenu" class="md:hidden px-6 pb-4 hidden">
+      <a href="#about" class="block py-2">About</a>
+      <a href="#projects" class="block py-2">Projects</a>
+      <a href="#skills" class="block py-2">Skills</a>
+      <a href="#contact" class="block py-2">Contact</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="pt-20 pb-12">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">Creating Stunning Digital Experiences<br
+            class="hidden sm:inline">that Inspire and Perform ⚡</h1>
+        <p class="mt-4 text-slate-300 max-w-xl">I'm <span class="font-semibold text-white">Muhammad Shazaib</span>, a
+          full-stack innovator specializing in the <b>MERN Stack</b>. I craft digital products that merge creativity
+          with technology — from responsive UIs in <b>React</b> to powerful APIs in <b>Node.js</b>. I believe great code
+          tells a story — one of <b>clarity, performance, and purpose</b> — and I’m here to write that story, one
+          project at a time.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#projects"
+            class="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-pink-500 px-5 py-3 rounded-full font-medium shadow-lg transform hover:-translate-y-1 transition">🚀
+            View Projects</a>
+          <a href="#contact"
+            class="inline-flex items-center gap-2 border border-white/10 px-4 py-3 rounded-full text-sm hover:bg-white/4">📞
+            Hire / Contact</a>
+        </div>
       </div>
-    </a>
-    <nav class="hidden md:flex gap-6 items-center text-sm">
-      <a href="#about" class="hover:text-white/90">About</a>
-      <a href="#projects" class="hover:text-white/90">Projects</a>
-      <a href="#skills" class="hover:text-white/90">Skills</a>
-      <a href="#contact" class="hover:text-white/90">Contact</a>
-      <a href="https://github.com/muhammad-shazaib" target="_blank" class="bg-white/10 px-3 py-2 rounded-md text-xs hover:bg-white/20">GitHub</a>
-    </nav>
-    <div class="md:hidden"><button id="menuBtn" class="p-2 rounded-md bg-white/6">Menu</button></div>
-  </div>
-  <div id="mobileMenu" class="md:hidden px-6 pb-4 hidden">
-    <a href="#about" class="block py-2">About</a>
-    <a href="#projects" class="block py-2">Projects</a>
-    <a href="#skills" class="block py-2">Skills</a>
-    <a href="#contact" class="block py-2">Contact</a>
-  </div>
-</header>
-
-<!-- HERO -->
-<section id="home" class="pt-20 pb-12">
-  <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-    <div>
-      <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">Creating Stunning Digital Experiences<br class="hidden sm:inline">that Inspire and Perform ⚡</h1>
-      <p class="mt-4 text-slate-300 max-w-xl">I'm <span class="font-semibold text-white">Muhammad Shazaib</span>, a full-stack innovator specializing in the <b>MERN Stack</b>. I craft digital products that merge creativity with technology — from responsive UIs in <b>React</b> to powerful APIs in <b>Node.js</b>. I believe great code tells a story — one of <b>clarity, performance, and purpose</b> — and I’m here to write that story, one project at a time.</p>
-      <div class="mt-6 flex flex-wrap gap-3">
-        <a href="#projects" class="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-pink-500 px-5 py-3 rounded-full font-medium shadow-lg transform hover:-translate-y-1 transition">🚀 View Projects</a>
-        <a href="#contact" class="inline-flex items-center gap-2 border border-white/10 px-4 py-3 rounded-full text-sm hover:bg-white/4">📞 Hire / Contact</a>
-      </div>
-    </div>
-    <div class="relative">
-      <div class="w-full h-72 sm:h-96 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition">
-        <img src="WhatsApp Image 2025-10-24 at 10.04.53 PM.jpeg" alt="Muhammad Shazaib professional photo" class="w-full h-full object-cover">
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="py-12">
-  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8 items-center">
-    <div class="md:col-span-2">
-      <h2 class="text-2xl font-bold">About Me</h2>
-      <p class="mt-4 text-slate-300">I’m a <b>MERN Stack Developer</b> who began this exciting journey in <b>December 2023</b>. I’ve completed my <b>MERN Stack Course</b> from <b>Saylani Mass IT Training</b> and am currently learning <b>Generative AI & Chatbot Development</b> to stay ahead in the modern tech world. I love creating fast, responsive, and user-friendly web applications using <b>MongoDB, Express, React, and Node.js</b>. My goal is to build digital experiences that are clean, creative, and truly impactful.</p>
-
-      <ul class="mt-6 grid sm:grid-cols-2 gap-4">
-       <li class="glass p-4 rounded-lg"><div class="text-sm font-semibold">Education</div><div class="text-xs text-slate-300 mt-1">B.Com — Completed (2022)<br>Bachelor of Business Information Technology (Virtual University) — In Progress</div></li>
-
-        <li class="glass p-4 rounded-lg"><div class="text-sm font-semibold">Courses</div><div class="text-xs text-slate-300 mt-1">MERN Stack — Completed<br>Generative AI & Chatbot — In Progress</div></li>
-        <li class="glass p-4 rounded-lg"><div class="text-sm font-semibold">Experience</div><div class="text-xs text-slate-300 mt-1">MERN Stack Developer — Worked on several hands-on projects during the Saylani Mass IT Training program, including real-world assignments and portfolio projects.</div></li>
-
-        <li class="glass p-4 rounded-lg"><div class="text-sm font-semibold">Core Skills</div><div class="text-xs text-slate-300 mt-1">React, Tailwind, Node, MongoDB, Redux, Express</div></li>
-      </ul>
-    </div>
-    <div><div class="rounded-2xl overflow-hidden shadow-lg border border-white/5"><img src="WhatsApp Image 2025-10-24 at 10.03.35 PM.jpeg" alt="Muhammad Shazaib casual photo" class="w-full h-64 object-cover"></div></div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects" class="py-12">
-  <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-2xl font-bold">Featured Projects</h2>
-    <p class="text-slate-300 mt-2">A collection of my recent and in-progress works — blending creativity, performance, and innovation.</p>
-
-    <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-      <!-- HealthMate Project -->
-      <article class="rounded-2xl overflow-hidden glass border border-white/5 shadow-lg hover:shadow-xl transition">
-        <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=1400&auto=format&fit=crop" alt="HealthMate project" class="w-full h-40 object-cover">
-        <div class="p-4">
-          <h3 class="font-semibold">HealthMate — AI-Powered Smart Health App <span class='text-xs text-pink-400'>(In Progress)</span></h3>
-          <p class="text-xs text-slate-300 mt-2">A next-gen health assistant built using <b>React, Tailwind, Node.js, and MongoDB</b>. Upload, analyze, and visualize health reports — future integration planned with <b>Google Gemini AI</b> for report insights and recommendations.</p>
-          <div class="mt-4 flex gap-2">
-            <a href="https://github.com/muhammad-shazaib/healthmate" target="_blank" class="text-xs px-3 py-2 rounded-md border hover:bg-white/10">Code</a>
-            <span class="text-xs px-3 py-2 rounded-md border border-white/10 text-slate-400">Live Coming Soon</span>
-          </div>
+      <div class="relative">
+        <div class="w-full h-72 sm:h-96 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition">
+          <img src="WhatsApp Image 2025-10-24 at 10.04.53 PM.jpeg" alt="Muhammad Shazaib professional photo"
+            class="w-full h-full object-cover">
         </div>
-      </article>
-
-      <!-- E-Commerce Project -->
-      <article class="rounded-2xl overflow-hidden glass border border-white/5 shadow-lg hover:shadow-xl transition">
-        <img src="https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=1400&auto=format&fit=crop" alt="E-Commerce Store" class="w-full h-40 object-cover">
-        <div class="p-4">
-          <h3 class="font-semibold">E-Commerce Store — MERN Stack Project <span class='text-xs text-pink-400'>(In Progress)</span></h3>
-          <p class="text-xs text-slate-300 mt-2">A complete online shopping app with <b>React, Node.js, Express, and MongoDB</b>. Features user authentication, product filtering, and cart system.</p>
-          <div class="mt-4 flex gap-2">
-            <a href="https://github.com/muhammad-shazaib/e-commerce-app" target="_blank" class="text-xs px-3 py-2 rounded-md border hover:bg-white/10">Code</a>
-            <span class="text-xs px-3 py-2 rounded-md border border-white/10 text-slate-400">Live Coming Soon</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- AI Image Generator -->
-      <article class="rounded-2xl overflow-hidden glass border border-white/5 shadow-lg hover:shadow-xl transition">
-        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1400&auto=format&fit=crop" alt="AI Image Generator" class="w-full h-40 object-cover">
-        <div class="p-4">
-          <h3 class="font-semibold">AI Image Generator — OpenAI API Project</h3>
-          <p class="text-xs text-slate-300 mt-2">An experimental app using <b>React + Node + OpenAI API</b> that generates creative images from user prompts — inspired by DALL·E concepts.</p>
-          <div class="mt-4 flex gap-2">
-            <a href="https://github.com/muhammad-shazaib/ai-image-generator" target="_blank" class="text-xs px-3 py-2 rounded-md border hover:bg-white/10">Code</a>
-            <span class="text-xs px-3 py-2 rounded-md border border-white/10 text-slate-400">Live Coming Soon</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Weather App -->
-      <article class="rounded-2xl overflow-hidden glass border border-white/5 shadow-lg hover:shadow-xl transition">
-        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1400&auto=format&fit=crop" alt="Weather App" class="w-full h-40 object-cover">
-        <div class="p-4">
-          <h3 class="font-semibold">Weather App — Real-Time Forecast</h3>
-          <p class="text-xs text-slate-300 mt-2">A weather forecast app built with <b>React</b> and <b>OpenWeather API</b>, providing live temperature, humidity, and weather condition updates for any city.</p>
-          <div class="mt-4 flex gap-2">
-            <a href="https://muhammad-shazaib.github.io/weather-app/" target="_blank" class="text-xs px-3 py-2 rounded-md border hover:bg-white/10">Live</a>
-            <a href="https://github.com/muhammad-shazaib/weather-app" target="_blank" class="text-xs px-3 py-2 rounded-md border hover:bg-white/10">Code</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Portfolio Website -->
-      <article class="rounded-2xl overflow-hidden glass border border-white/5 shadow-lg hover:shadow-xl transition">
-        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1400&auto=format&fit=crop" alt="Portfolio Website" class="w-full h-40 object-cover">
-        <div class="p-4">
-          <h3 class="font-semibold">Portfolio Website</h3>
-          <p class="text-xs text-slate-300 mt-2">My personal portfolio built using <b>HTML5, Tailwind CSS, and JavaScript</b> — showcasing my projects, skills, and achievements.</p>
-          <div class="mt-4 flex gap-2">
-            <a href="https://muhammad-shazaib.github.io/portfolio" target="_blank" class="text-xs px-3 py-2 rounded-md border hover:bg-white/10">Live</a>
-            <a href="https://github.com/muhammad-shazaib/portfolio" target="_blank" class="text-xs px-3 py-2 rounded-md border hover:bg-white/10">Code</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Student Info Interface -->
-      <article class="rounded-2xl overflow-hidden glass border border-white/5 shadow-lg hover:shadow-xl transition">
-        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1400&auto=format&fit=crop" alt="Student Info Interface" class="w-full h-40 object-cover">
-        <div class="p-4">
-          <h3 class="font-semibold">Student Info Listing Interface</h3>
-          <p class="text-xs text-slate-300 mt-2">A responsive web app built with <b>React</b> for managing and filtering student data. Created during the <b>Saylani Mass IT Training</b> program.</p>
-          <div class="mt-4 flex gap-2">
-            <a href="https://muhammad-shazaib.github.io/student-info-interface/" target="_blank" class="text-xs px-3 py-2 rounded-md border hover:bg-white/10">Live</a>
-            <a href="https://github.com/muhammad-shazaib/student-info-interface" target="_blank" class="text-xs px-3 py-2 rounded-md border hover:bg-white/10">Code</a>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-
-
-<!-- SKILLS -->
-<section id="skills" class="py-12">
-  <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-2xl font-bold">Skills & Tools</h2>
-    <div class="mt-4 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      <div class="glass p-4 rounded-lg"><div class="text-sm font-semibold">Frontend</div><div class="text-xs text-slate-300 mt-2">HTML, CSS, JavaScript, React, Tailwind</div></div>
-      <div class="glass p-4 rounded-lg"><div class="text-sm font-semibold">Backend</div><div class="text-xs text-slate-300 mt-2">Node.js, Express, MongoDB</div></div>
-      <div class="glass p-4 rounded-lg"><div class="text-sm font-semibold">Courses</div><div class="text-xs text-slate-300 mt-2">MERN Stack (Completed)<br>Generative AI & Chatbot (In Progress)</div></div>
-      <div class="glass p-4 rounded-lg"><div class="text-sm font-semibold">Tools</div><div class="text-xs text-slate-300 mt-2">Git, GitHub, VS Code, Postman, npm, Chrome DevTools</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="py-12">
-  <div class="max-w-4xl mx-auto px-6 grid md:grid-cols-2 gap-8 items-start">
-    <div>
-      <h2 class="text-2xl font-bold">Let’s Collaborate</h2>
-      <p class="text-slate-300 mt-2">Open to freelance & full-time opportunities across Saudi Arabia 🇸🇦. Let's build something amazing together.</p>
-<form action="https://formsubmit.co/shazaibirshad126@gmail.com" method="POST" class="mt-6 grid gap-3">
-  <input name="name" required class="p-3 rounded-lg bg-white/5 border border-white/5" placeholder="Your name">
-  <input name="email" type="email" required class="p-3 rounded-lg bg-white/5 border border-white/5" placeholder="Email">
-  <textarea name="message" rows="5" required class="p-3 rounded-lg bg-white/5 border border-white/5" placeholder="Message"></textarea>
-
-  <!-- Hidden inputs for better UX -->
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_next" value="https://yourwebsite.com/thankyou.html">
-
-  <div class="flex gap-3">
-    <button type="submit" class="bg-gradient-to-r from-indigo-500 to-pink-500 px-4 py-2 rounded-md font-medium">
-      Send Message
-    </button>
-    <a href="https://drive.google.com/uc?export=download&id=1qHdo4yn9tSZ90ZrG0AnpcGtL_1zvBYrY"
-       class="px-4 py-2 rounded-md border border-white/10">Download CV</a>
-  </div>
-</form>
-
-    </div>
-    <div class="p-6 rounded-2xl glass border border-white/5">
-      <h3 class="font-semibold">Quick Contact</h3>
-      <div class="mt-3 text-slate-300 text-sm">
-        📧 Email: <a href="mailto:shazaibirshad126@gmail.com" class="underline hover:text-white">shazaibirshad126@gmail.com</a><br>
-        📞 Phone: <a href="tel:+923112262442" class="underline hover:text-white">+92 311 2262442</a><br>
-        💼 GitHub: <a href="https://github.com/Muhammad-shazaib" target="_blank" class="underline hover:text-white">muhammad-shazaib</a><br>
-        🔗 LinkedIn: <a href="https://linkedin.com/in/muhammadshazaib126" target="_blank" class="underline hover:text-white">linkedin.com/in/muhammadshazaib126</a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
-<footer class="py-8">
-  <div class="max-w-6xl mx-auto px-6 text-center text-slate-400 text-sm">
-    <div>© <span id="year"></span> Muhammad Shazaib — Built with Tailwind & ❤️</div>
-    <div class="mt-2">Inspired by Tailblocks | Customized by Shazaib ✨</div>
-  </div>
-</footer>
+  <!-- ABOUT -->
+  <section id="about" class="py-12">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8 items-center">
+      <div class="md:col-span-2">
+        <h2 class="text-2xl font-bold">About Me</h2>
+        <p class="mt-4 text-slate-300">I’m a <b>MERN Stack Developer</b> who began this exciting journey in <b>December
+            2023</b>. I’ve completed my <b>MERN Stack Course</b> from <b>Saylani Mass IT Training</b> and am currently
+          learning <b>Generative AI & Chatbot Development</b> to stay ahead in the modern tech world. I love creating
+          fast, responsive, and user-friendly web applications using <b>MongoDB, Express, React, and Node.js</b>. My
+          goal is to build digital experiences that are clean, creative, and truly impactful.</p>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-  const menuBtn=document.getElementById('menuBtn');
-  const mobileMenu=document.getElementById('mobileMenu');
-  menuBtn&&menuBtn.addEventListener('click',()=>mobileMenu.classList.toggle('hidden'));
-</script>
+        <ul class="mt-6 grid sm:grid-cols-2 gap-4">
+          <li class="glass p-4 rounded-lg">
+            <div class="text-sm font-semibold">Education</div>
+            <div class="text-xs text-slate-300 mt-1">B.Com — Completed (2022)<br>Bachelor of Business Information
+              Technology (Virtual University) — In Progress</div>
+          </li>
+
+          <li class="glass p-4 rounded-lg">
+            <div class="text-sm font-semibold">Courses</div>
+            <div class="text-xs text-slate-300 mt-1">MERN Stack — Completed<br>Generative AI & Chatbot — In Progress
+            </div>
+          </li>
+          <li class="glass p-4 rounded-lg">
+            <div class="text-sm font-semibold">Experience</div>
+            <div class="text-xs text-slate-300 mt-1">MERN Stack Developer — Worked on several hands-on projects during
+              the Saylani Mass IT Training program, including real-world assignments and portfolio projects.</div>
+          </li>
+
+          <li class="glass p-4 rounded-lg">
+            <div class="text-sm font-semibold">Core Skills</div>
+            <div class="text-xs text-slate-300 mt-1">React, Tailwind, Node, MongoDB, Redux, Express</div>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <div class="rounded-2xl overflow-hidden shadow-lg border border-white/5"><img
+            src="WhatsApp Image 2025-10-24 at 10.03.35 PM.jpeg" alt="Muhammad Shazaib casual photo"
+            class="w-full h-auto rounded-2xl object-contain">
+
+        </div>
+      </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-2xl font-bold">Featured Projects</h2>
+      <p class="text-slate-300 mt-2">A collection of my recent and in-progress works — blending creativity, performance,
+        and innovation.</p>
+
+      <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- HealthMate Project -->
+        <article class="rounded-2xl overflow-hidden glass border border-white/5 shadow-lg hover:shadow-xl transition">
+          <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=1400&auto=format&fit=crop"
+            alt="HealthMate project" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold">HealthMate — AI-Powered Smart Health App <span class='text-xs text-pink-400'>(In
+                Progress)</span></h3>
+            <p class="text-xs text-slate-300 mt-2">A next-gen health assistant built using <b>React, Tailwind, Node.js,
+                and MongoDB</b>. Upload, analyze, and visualize health reports — future integration planned with
+              <b>Google Gemini AI</b> for report insights and recommendations.
+            </p>
+            <div class="mt-4 flex gap-2">
+              <a href="https://github.com/muhammad-shazaib/healthmate" target="_blank"
+                class="text-xs px-3 py-2 rounded-md border hover:bg-white/10">Code</a>
+              <span class="text-xs px-3 py-2 rounded-md border border-white/10 text-slate-400">Live Coming Soon</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- E-Commerce Project -->
+        <article class="rounded-2xl overflow-hidden glass border border-white/5 shadow-lg hover:shadow-xl transition">
+          <img src="https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=1400&auto=format&fit=crop"
+            alt="E-Commerce Store" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold">E-Commerce Store — MERN Stack Project <span class='text-xs text-pink-400'>(In
+                Progress)</span></h3>
+            <p class="text-xs text-slate-300 mt-2">A complete online shopping app with <b>React, Node.js, Express, and
+                MongoDB</b>. Features user authentication, product filtering, and cart system.</p>
+            <div class="mt-4 flex gap-2">
+              <a href="https://github.com/muhammad-shazaib/e-commerce-app" target="_blank"
+                class="text-xs px-3 py-2 rounded-md border hover:bg-white/10">Code</a>
+              <span class="text-xs px-3 py-2 rounded-md border border-white/10 text-slate-400">Live Coming Soon</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- AI Image Generator -->
+        <article class="rounded-2xl overflow-hidden glass border border-white/5 shadow-lg hover:shadow-xl transition">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1400&auto=format&fit=crop"
+            alt="AI Image Generator" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold">AI Image Generator — OpenAI API Project</h3>
+            <p class="text-xs text-slate-300 mt-2">An experimental app using <b>React + Node + OpenAI API</b> that
+              generates creative images from user prompts — inspired by DALL·E concepts.</p>
+            <div class="mt-4 flex gap-2">
+              <a href="https://github.com/muhammad-shazaib/ai-image-generator" target="_blank"
+                class="text-xs px-3 py-2 rounded-md border hover:bg-white/10">Code</a>
+              <span class="text-xs px-3 py-2 rounded-md border border-white/10 text-slate-400">Live Coming Soon</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Weather App -->
+        <article class="rounded-2xl overflow-hidden glass border border-white/5 shadow-lg hover:shadow-xl transition">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1400&auto=format&fit=crop"
+            alt="Weather App" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold">Weather App — Real-Time Forecast</h3>
+            <p class="text-xs text-slate-300 mt-2">A weather forecast app built with <b>React</b> and <b>OpenWeather
+                API</b>, providing live temperature, humidity, and weather condition updates for any city.</p>
+            <div class="mt-4 flex gap-2">
+              <a href="https://muhammad-shazaib.github.io/weather-app/" target="_blank"
+                class="text-xs px-3 py-2 rounded-md border hover:bg-white/10">Live</a>
+              <a href="https://github.com/muhammad-shazaib/weather-app" target="_blank"
+                class="text-xs px-3 py-2 rounded-md border hover:bg-white/10">Code</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Portfolio Website -->
+        <article class="rounded-2xl overflow-hidden glass border border-white/5 shadow-lg hover:shadow-xl transition">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1400&auto=format&fit=crop"
+            alt="Portfolio Website" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold">Portfolio Website</h3>
+            <p class="text-xs text-slate-300 mt-2">My personal portfolio built using <b>HTML5, Tailwind CSS, and
+                JavaScript</b> — showcasing my projects, skills, and achievements.</p>
+            <div class="mt-4 flex gap-2">
+              <a href="https://muhammad-shazaib.github.io/portfolio" target="_blank"
+                class="text-xs px-3 py-2 rounded-md border hover:bg-white/10">Live</a>
+              <a href="https://github.com/muhammad-shazaib/portfolio" target="_blank"
+                class="text-xs px-3 py-2 rounded-md border hover:bg-white/10">Code</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Student Info Interface -->
+        <article class="rounded-2xl overflow-hidden glass border border-white/5 shadow-lg hover:shadow-xl transition">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1400&auto=format&fit=crop"
+            alt="Student Info Interface" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold">Student Info Listing Interface</h3>
+            <p class="text-xs text-slate-300 mt-2">A responsive web app built with <b>React</b> for managing and
+              filtering student data. Created during the <b>Saylani Mass IT Training</b> program.</p>
+            <div class="mt-4 flex gap-2">
+              <a href="https://muhammad-shazaib.github.io/student-info-interface/" target="_blank"
+                class="text-xs px-3 py-2 rounded-md border hover:bg-white/10">Live</a>
+              <a href="https://github.com/muhammad-shazaib/student-info-interface" target="_blank"
+                class="text-xs px-3 py-2 rounded-md border hover:bg-white/10">Code</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- SKILLS -->
+  <section id="skills" class="py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-2xl font-bold">Skills & Tools</h2>
+      <div class="mt-4 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="glass p-4 rounded-lg">
+          <div class="text-sm font-semibold">Frontend</div>
+          <div class="text-xs text-slate-300 mt-2">HTML, CSS, JavaScript, React, Tailwind</div>
+        </div>
+        <div class="glass p-4 rounded-lg">
+          <div class="text-sm font-semibold">Backend</div>
+          <div class="text-xs text-slate-300 mt-2">Node.js, Express, MongoDB</div>
+        </div>
+        <div class="glass p-4 rounded-lg">
+          <div class="text-sm font-semibold">Courses</div>
+          <div class="text-xs text-slate-300 mt-2">MERN Stack (Completed)<br>Generative AI & Chatbot (In Progress)</div>
+        </div>
+        <div class="glass p-4 rounded-lg">
+          <div class="text-sm font-semibold">Tools</div>
+          <div class="text-xs text-slate-300 mt-2">Git, GitHub, VS Code, Postman, npm, Chrome DevTools</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-12">
+    <div class="max-w-4xl mx-auto px-6 grid md:grid-cols-2 gap-8 items-start">
+      <div>
+        <h2 class="text-2xl font-bold">Let’s Collaborate</h2>
+        <p class="text-slate-300 mt-2">Open to freelance & full-time opportunities across Saudi Arabia 🇸🇦. Let's build
+          something amazing together.</p>
+        <form action="https://formsubmit.co/02fee2b5007a2763d57d31fd90634b0f" method="POST" class="mt-6 grid gap-3">
+          <input name="name" required class="p-3 rounded-lg bg-white/5 border border-white/5" placeholder="Your name">
+          <input name="email" type="email" required class="p-3 rounded-lg bg-white/5 border border-white/5"
+            placeholder="Email">
+          <textarea name="message" rows="5" required class="p-3 rounded-lg bg-white/5 border border-white/5"
+            placeholder="Message"></textarea>
+          <div class="flex gap-3">
+            <button type="submit"
+              class="bg-gradient-to-r from-indigo-500 to-pink-500 px-4 py-2 rounded-md font-medium">Send
+              Message</button>
+            <a href="https://drive.google.com/uc?export=download&id=1qHdo4yn9tSZ90ZrG0AnpcGtL_1zvBYrY"
+              class="px-4 py-2 rounded-md border border-white/10">Download CV</a>
+          </div>
+        </form>
+      </div>
+      <div class="p-6 rounded-2xl glass border border-white/5">
+        <h3 class="font-semibold">Quick Contact</h3>
+        <div class="mt-3 text-slate-300 text-sm">
+          📧 Email: <a href="mailto:shazaibirshad126@gmail.com"
+            class="underline hover:text-white">shazaibirshad126@gmail.com</a><br>
+          📞 Phone: <a href="tel:+923112262442" class="underline hover:text-white">+92 311 2262442</a><br>
+          💼 GitHub: <a href="https://github.com/Muhammad-shazaib" target="_blank"
+            class="underline hover:text-white">muhammad-shazaib</a><br>
+          🔗 LinkedIn: <a href="https://linkedin.com/in/muhammadshazaib126" target="_blank"
+            class="underline hover:text-white">linkedin.com/in/muhammadshazaib126</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-8">
+    <div class="max-w-6xl mx-auto px-6 text-center text-slate-400 text-sm">
+      <div>© <span id="year"></span> Muhammad Shazaib — Built with Tailwind & ❤️</div>
+      <div class="mt-2">Inspired by Tailblocks | Customized by Shazaib ✨</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn && menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  </script>
 
 </body>
+
 </html>
