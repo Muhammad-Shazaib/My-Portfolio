@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Interaction Lab — Muhammad Shazaib</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/speech-commands@0.4.0/dist/speech-commands.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body class="bg-gradient-to-br from-gray-900 via-slate-900 to-indigo-900 text-white flex flex-col items-center min-h-screen p-6">
+
+  <h1 class="text-4xl font-bold mb-6 mt-4 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-pink-400 animate-pulse">
+    🤖 AI Interaction Lab
+  </h1>
+  <p class="text-slate-300 mb-10 text-center max-w-2xl animate-fadeIn">
+    Experiment with <b>Image</b>, <b>Pose</b>, and <b>Audio</b> AI models trained using <b>Teachable Machine</b>.
+    Allow <b>Camera</b> & <b>Mic</b> access to start!
+  </p>
+
+  <!-- Buttons -->
+  <div class="flex gap-4 mb-8 flex-wrap justify-center animate-fadeIn">
+    <button onclick="startImage()" class="btn">🖼️ Start Image Model</button>
+    <button onclick="startPose()" class="btn">🧍‍♂️ Start Pose Model</button>
+    <button onclick="startAudio()" class="btn">🎤 Start Audio Model</button>
+  </div>
+
+  <!-- Loader -->
+  <div id="loader" class="hidden fixed inset-0 bg-black/60 backdrop-blur flex items-center justify-center z-50">
+    <div class="flex flex-col items-center">
+      <div class="w-16 h-16 border-4 border-t-pink-500 border-white/20 rounded-full animate-spin"></div>
+      <p class="mt-4 text-sm text-slate-300">Initializing AI Model...</p>
+    </div>
+  </div>
+
+  <!-- Webcam/Canvas Sections -->
+  <div class="grid gap-8 md:grid-cols-3 w-full max-w-6xl fade-in">
+    
+    <!-- IMAGE -->
+    <div class="section">
+      <h2 class="title text-indigo-300">Image Classification</h2>
+      <div id="webcam-container-image" class="flex justify-center"></div>
+      <div id="labels-image" class="labels"></div>
+    </div>
+
+    <!-- POSE -->
+    <div class="section">
+      <h2 class="title text-pink-300">Pose Detection</h2>
+      <canvas id="canvas-pose" width="320" height="240" class="mx-auto rounded-lg"></canvas>
+      <div id="labels-pose" class="labels"></div>
+    </div>
+
+    <!-- AUDIO -->
+    <div class="section">
+      <h2 class="title text-emerald-300">Audio Recognition</h2>
+      <div id="labels-audio" class="labels"></div>
+    </div>
+  </div>
+
+  <p class="mt-12 text-slate-400 text-sm">Created by <b>Muhammad Shazaib</b> — Powered by <b>TensorFlow.js</b> & <b>Teachable Machine</b></p>
+
+  <style>
+    .btn {
+      @apply px-5 py-2 rounded-lg font-medium transition shadow-lg hover:scale-105;
+    }
+    .btn:nth-child(1){@apply bg-indigo-500 hover:bg-indigo-600;}
+    .btn:nth-child(2){@apply bg-pink-500 hover:bg-pink-600;}
+    .btn:nth-child(3){@apply bg-emerald-500 hover:bg-emerald-600;}
+    .section {
+      @apply bg-white/5 p-4 rounded-xl border border-white/10 shadow-lg backdrop-blur animate-fadeIn;
+    }
+    .title {
+      @apply text-lg font-semibold mb-3 text-center;
+    }
+    .labels {
+      @apply mt-4 text-sm text-slate-300 space-y-1 text-center;
+    }
+    @keyframes fadeIn { from {opacity:0;transform:translateY(10px);} to {opacity:1;transform:translateY(0);} }
+    .animate-fadeIn { animation: fadeIn 1s ease forwards; }
+  </style>
+
+  <script>
+    // Utility: Loader show/hide + confetti
+    function showLoader() { document.getElementById("loader").classList.remove("hidden"); }
+    function hideLoader() { document.getElementById("loader").classList.add("hidden"); }
+    function fireConfetti() { confetti({particleCount:100,spread:70,origin:{y:0.6}}); }
+
+    // Image Model
+    const IMG_URL = "https://teachablemachine.withgoogle.com/models/1y4MFUQKu/";
+    let imgModel, imgWebcam;
+    async function startImage(){
+      showLoader();
+      const modelURL = IMG_URL + "model.json";
+      const metadataURL = IMG_URL + "metadata.json";
+      imgModel = await tmImage.load(modelURL, metadataURL);
+      imgWebcam = new tmImage.Webcam(320, 240, true);
+      await imgWebcam.setup(); await imgWebcam.play();
+      document.getElementById("webcam-container-image").appendChild(imgWebcam.canvas);
+      window.requestAnimationFrame(loopImage);
+      hideLoader(); fireConfetti();
+    }
+    async function loopImage(){ imgWebcam.update(); await predictImage(); window.requestAnimationFrame(loopImage); }
+    async function predictImage(){
+      const pred = await imgModel.predict(imgWebcam.canvas);
+      document.getElementById("labels-image").innerHTML = pred.map(p=>`${p.className}: ${(p.probability*100).toFixed(1)}%`).join("<br>");
+    }
+
+    // Pose Model
+    const POSE_URL = "https://teachablemachine.withgoogle.com/models/Q4BZ_lrU-/";
+    let poseModel, poseWebcam, poseCtx;
+    async function startPose(){
+      showLoader();
+      const modelURL = POSE_URL + "model.json";
+      const metadataURL = POSE_URL + "metadata.json";
+      poseModel = await tmPose.load(modelURL, metadataURL);
+      poseWebcam = new tmPose.Webcam(320, 240, true);
+      await poseWebcam.setup(); await poseWebcam.play();
+      poseCtx = document.getElementById("canvas-pose").getContext("2d");
+      window.requestAnimationFrame(loopPose);
+      hideLoader(); fireConfetti();
+    }
+    async function loopPose(){
+      poseWebcam.update();
+      await predictPose();
+      window.requestAnimationFrame(loopPose);
+    }
+    async function predictPose(){
+      const { pose, posenetOutput } = await poseModel.estimatePose(poseWebcam.canvas);
+      const pred = await poseModel.predict(posenetOutput);
+      poseCtx.drawImage(poseWebcam.canvas, 0, 0);
+      tmPose.drawKeypoints(pose.keypoints, 0.5, poseCtx);
+      tmPose.drawSkeleton(pose.keypoints, 0.5, poseCtx);
+      document.getElementById("labels-pose").innerHTML = pred.map(p=>`${p.className}: ${(p.probability*100).toFixed(1)}%`).join("<br>");
+    }
+
+    // Audio Model
+    const AUDIO_URL = "https://teachablemachine.withgoogle.com/models/K0HlwgHwe/";
+    async function startAudio(){
+      showLoader();
+      const checkpointURL = AUDIO_URL + "model.json";
+      const metadataURL = AUDIO_URL + "metadata.json";
+      const recognizer = speechCommands.create("BROWSER_FFT", undefined, checkpointURL, metadataURL);
+      await recognizer.ensureModelLoaded();
+      const labels = recognizer.wordLabels();
+      const container = document.getElementById("labels-audio");
+      container.innerHTML = labels.map(l=>`<div>${l}: 0%</div>`).join("");
+      hideLoader(); fireConfetti();
+      recognizer.listen(res=>{
+        for(let i=0;i<labels.length;i++){
+          container.childNodes[i].innerHTML = `${labels[i]}: ${(res.scores[i]*100).toFixed(1)}%`;
+        }
+      }, {probabilityThreshold:0.75});
+    }
+  </script>
+</body>
+</html>
