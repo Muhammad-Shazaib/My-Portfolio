@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-pt-[163px] sm:scroll-pt-[126px] md:scroll-pt-[26px]">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Muhammad Shazaib — MERN Stack Developer Portfolio</title>
+  <title>Muhammad Shazaib — Portfolio</title>
   <meta name="description"
     content="Portfolio of Muhammad Shazaib — MERN Stack Developer | React | Node.js | MongoDB | Tailwind CSS" />
   <meta name="keywords" content="Muhammad Shazaib, MERN Stack, Developer, React, Tailwind, Node, MongoDB, Portfolio" />
@@ -26,32 +26,51 @@
 <body class="bg-gradient-to-br from-gray-900 via-slate-900 to-indigo-900 text-slate-100">
 
   <!-- NAV -->
-  <header class="sticky top-0 z-50 glass border-b border-white/5">
+  <header id="navbar"
+    class="fixed top-0 left-0 w-full z-50 bg-white/5 backdrop-blur-xl border-b border-white/10 transition-all duration-300">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+
+      <!-- Logo -->
       <a href="#home" class="flex items-center gap-3">
         <div
           class="w-10 h-10 rounded-full bg-gradient-to-tr from-indigo-500 to-pink-500 flex items-center justify-center text-white font-bold">
           MS</div>
-        <div class="hidden sm:block">
+        <div class="hidden lg:block">
           <div class="text-sm font-semibold">Muhammad Shazaib</div>
-          <div class="text-xs text-slate-300">MERN Stack Developer</div>
+          <div class="text-xs text-slate-300">Full Stack MERN Developer | Exploring Generative AI & Chatbot Development
+          </div>
         </div>
       </a>
-      <nav class="hidden md:flex gap-6 items-center text-sm">
-        <a href="#about" class="hover:text-white/90">About</a>
-        <a href="#projects" class="hover:text-white/90">Projects</a>
-        <a href="#skills" class="hover:text-white/90">Skills</a>
-        <a href="#contact" class="hover:text-white/90">Contact</a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex gap-8 items-center text-sm font-medium">
+        <a href="#about" class="relative hover:text-indigo-300 transition group">About <span
+            class="absolute left-0 bottom-0 w-0 h-[2px] bg-indigo-400 transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="#projects" class="relative hover:text-indigo-300 transition group">Projects <span
+            class="absolute left-0 bottom-0 w-0 h-[2px] bg-indigo-400 transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="#skills" class="relative hover:text-indigo-300 transition group">Skills <span
+            class="absolute left-0 bottom-0 w-0 h-[2px] bg-indigo-400 transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="#contact" class="relative hover:text-indigo-300 transition group">Contact <span
+            class="absolute left-0 bottom-0 w-0 h-[2px] bg-indigo-400 transition-all duration-300 group-hover:w-full"></span></a>
         <a href="https://github.com/muhammad-shazaib" target="_blank"
-          class="bg-white/10 px-3 py-2 rounded-md text-xs hover:bg-white/20">GitHub</a>
+          class="px-3 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-xs transition">GitHub</a>
       </nav>
-      <div class="md:hidden"><button id="menuBtn" class="p-2 rounded-md bg-white/6">Menu</button></div>
+
+      <!-- Mobile Menu Button -->
+      <button id="menuBtn" class="lg:hidden p-3 rounded-lg bg-white/10 hover:bg-white/20 transition-all">
+        <div id="bar1" class="w-6 h-[2px] bg-white mb-1 transition-all"></div>
+        <div id="bar2" class="w-6 h-[2px] bg-white mb-1 transition-all"></div>
+        <div id="bar3" class="w-6 h-[2px] bg-white transition-all"></div>
+      </button>
     </div>
-    <div id="mobileMenu" class="md:hidden px-6 pb-4 hidden">
-      <a href="#about" class="block py-2">About</a>
-      <a href="#projects" class="block py-2">Projects</a>
-      <a href="#skills" class="block py-2">Skills</a>
-      <a href="#contact" class="block py-2">Contact</a>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu"
+      class="lg:hidden absolute top-[72px] left-0 w-full bg-black/70 backdrop-blur-xl border-b border-white/10 hidden flex-col text-lg font-medium px-6 py-6 space-y-4 origin-top scale-y-0 opacity-0 transition-all duration-300 relative">
+      <a href="#about" class="py-2 border-b border-white/10">About</a>
+      <a href="#projects" class="py-2 border-b border-white/10">Projects</a>
+      <a href="#skills" class="py-2 border-b border-white/10">Skills</a>
+      <a href="#contact" class="py-2">Contact</a>
     </div>
   </header>
 
@@ -60,12 +79,15 @@
     <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
       <div>
         <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">Creating Stunning Digital Experiences<br
-            class="hidden sm:inline">that Inspire and Perform ⚡</h1>
-        <p class="mt-4 text-slate-300 max-w-xl">I'm <span class="font-semibold text-white">Muhammad Shazaib</span>, a
-          full-stack innovator specializing in the <b>MERN Stack</b>. I craft digital products that merge creativity
-          with technology — from responsive UIs in <b>React</b> to powerful APIs in <b>Node.js</b>. I believe great code
-          tells a story — one of <b>clarity, performance, and purpose</b> — and I’m here to write that story, one
-          project at a time.</p>
+            class="hidden sm:inline">that Inspire & Perform ⚡</h1>
+        <p class="mt-4 text-slate-300 max-w-xl">
+          I'm <span class="font-semibold text-white">Muhammad Shazaib</span>, a full-stack innovator specializing in the
+          <b>MERN Stack</b>. I craft digital products that merge creativity with technology — from responsive UIs in
+          <b>React</b> to powerful APIs in <b>Node.js</b>. Currently, I'm exploring <b>Generative AI & Chatbot
+            Development</b> to build intelligent and interactive digital experiences. I believe great code tells a story
+          — one of <b>clarity, performance, and purpose</b> — and I’m here to write that story, one project at a time.
+        </p>
+
         <div class="mt-6 flex flex-wrap gap-3">
           <a href="#projects"
             class="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-pink-500 px-5 py-3 rounded-full font-medium shadow-lg transform hover:-translate-y-1 transition">🚀
@@ -89,11 +111,19 @@
     <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8 items-center">
       <div class="md:col-span-2">
         <h2 class="text-2xl font-bold">About Me</h2>
-        <p class="mt-4 text-slate-300">I’m a <b>MERN Stack Developer</b> who began this exciting journey in <b>December
-            2023</b>. I’ve completed my <b>MERN Stack Course</b> from <b>Saylani Mass IT Training</b> and am currently
-          learning <b>Generative AI & Chatbot Development</b> to stay ahead in the modern tech world. I love creating
-          fast, responsive, and user-friendly web applications using <b>MongoDB, Express, React, and Node.js</b>. My
-          goal is to build digital experiences that are clean, creative, and truly impactful.</p>
+        <p class="mt-4 text-slate-300 text-lg leading-relaxed">
+          Hi, I’m <span class="text-white-400 font-semibold">Muhammad Shazaib</span>, a <span
+            class="text-white-400 font-semibold">Full Stack MERN Developer</span> who began this exciting journey in
+          <span class="text-white-400 font-semibold">December 2023</span>.
+          I’ve completed my <span class="text-white-400 font-semibold">MERN Stack Course</span> from <span
+            class="text-white-400 font-semibold">Saylani Mass IT Training</span> and am currently diving into <span
+            class="text-white-400 font-semibold">Generative AI & Chatbot Development</span> to stay ahead in the modern
+          tech world.
+          I love crafting <span class="text-white-400 font-semibold">fast, responsive, and user-friendly web apps</span>
+          with <span class="text-white-400 font-semibold">React, MongoDB, Express, Node.js</span>. My goal is to create
+          digital experiences that are <span class="text-white-400 font-semibold">clean, creative, and impactful</span>.
+        </p>
+
 
         <ul class="mt-6 grid sm:grid-cols-2 gap-4">
           <li class="glass p-4 rounded-lg">
@@ -290,7 +320,7 @@
               Message</button>
             <a href="https://drive.google.com/uc?export=download&id=1qHdo4yn9tSZ90ZrG0AnpcGtL_1zvBYrY"
               class="px-4 py-2 rounded-md border border-white/10">Download CV</a>
-             <input type="hidden" name="_subject" value="New Message from Portfolio">
+            <input type="hidden" name="_subject" value="New Message from Portfolio">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_next" value="https://muhammad-shazaib.github.io/My-Portfolio/thank-you.html">
           </div>
@@ -320,10 +350,37 @@
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    menuBtn && menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    const btn = document.getElementById("menuBtn");
+    const menu = document.getElementById("mobileMenu");
+    const bar1 = document.getElementById("bar1");
+    const bar2 = document.getElementById("bar2");
+    const bar3 = document.getElementById("bar3");
+    const navbar = document.getElementById("navbar");
+
+    // Hamburger Animation + Menu Toggle
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+
+      setTimeout(() => {
+        menu.classList.toggle("scale-y-0");
+        menu.classList.toggle("opacity-0");
+      }, 10);
+
+      bar1.classList.toggle("rotate-45");
+      bar1.classList.toggle("translate-y-2");
+      bar3.classList.toggle("-rotate-45");
+      bar3.classList.toggle("-translate-y-2");
+      bar2.classList.toggle("opacity-0");
+    });
+
+    // Shadow on Scroll
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add("shadow-lg", "shadow-black/20");
+      } else {
+        navbar.classList.remove("shadow-lg", "shadow-black/20");
+      }
+    });
   </script>
 
 </body>
